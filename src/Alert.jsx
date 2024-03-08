@@ -6,6 +6,9 @@ export default function Alert({type, heading, closable, children, onClose}) {
   }
   function handleCloseClick() {
     setVisible(false);
+    if (onClose) { 
+      onClose(); // ここでは関数を渡す
+    }
   }
 
   return (
