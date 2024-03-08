@@ -1,13 +1,13 @@
-export default function Alert() {
+export default function Alert({type, heading, children}) {
   return (
     <div>
       <div>
-        <span role="img" aria-label-by="Warning">
-          ⚠️
+        <span role="img" aria-label={type === "warning" ? "Warning" : "Information"}>
+          {type === "warning" ? "⚠️" : "⭕️"}
         </span>
-        <span>Oh no!</span>
+        <span>{heading}</span>
       </div>
-      <div>Something isn't quite right ...</div>
+      <div>{children}</div>
     </div>
   );
 }
