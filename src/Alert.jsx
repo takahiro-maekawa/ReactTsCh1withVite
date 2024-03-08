@@ -1,4 +1,4 @@
-export default function Alert({type, heading, children}) {
+export default function Alert({type, heading, closable, children}) {
   return (
     <div>
       <div>
@@ -7,6 +7,10 @@ export default function Alert({type, heading, children}) {
         </span>
         <span>{heading}</span>
       </div>
+      { closable && (
+      <button aria-label="Close">
+        <span role = "img" aria-label="Close">❌</span>
+      </button>)}
       <div>{children}</div>
     </div>
   );

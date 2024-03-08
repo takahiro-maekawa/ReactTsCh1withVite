@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <Alert type = "information" heading="Success">
+      <Alert type = "information" heading="Success" closable={true}>
        フレーフレー
       </Alert>
     </>
