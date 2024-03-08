@@ -1,4 +1,13 @@
-export default function Alert({type, heading, closable, children}) {
+import { useState } from 'react';
+export default function Alert({type, heading, closable, children, onClose}) {
+  const [visible, setVisible] = useState(true);
+  if (!visible){
+    return null;
+  }
+  function handleCloseClick() {
+    setVisible(false);
+  }
+
   return (
     <div>
       <div>
@@ -8,8 +17,8 @@ export default function Alert({type, heading, closable, children}) {
         <span>{heading}</span>
       </div>
       { closable && (
-      <button aria-label="Close">
-        <span role = "img" aria-label="Close">❌</span>
+      <button aria-label="Close" onClick={handleCloseClick}>
+        <span role = "img"  aria-label="Close">❌</span>
       </button>)}
       <div>{children}</div>
     </div>
